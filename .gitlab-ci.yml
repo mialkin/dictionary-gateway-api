@@ -5,6 +5,7 @@ variables:
 
 stages:
   - build
+  - publish
 
 .restore_packages: &restore_nuget_packages
   - dotnet restore --packages $NUGET_PACKAGES_DIRECTORY
