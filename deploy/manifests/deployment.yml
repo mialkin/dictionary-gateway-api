@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dictionary-gateway-api
+  namespace: dictionary
+  labels:
+    app: dictionary-gateway-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dictionary-gateway-api
+  template:
+    metadata:
+      namespace: dictionary
+      labels:
+        app: dictionary-gateway-api
+    spec:
+      containers:
+        - name: dictionary-gateway-api
+          image: mialkin/dictionary-gateway-api
+          ports:
+            - containerPort: 80
